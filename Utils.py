@@ -25,9 +25,9 @@ def setup_lib():
                 manifest = orjson.loads(manifest_file.read())
             version = manifest["world_version"]
             tmp_path = os.path.join(tempfile.gettempdir(), f"albwrandomizer_{version}")
-            if os.getenv("ALBW_DEBUG", 0):
-                shutil.rmtree(tmp_path)
-            if not os.path.exists(tmp_path):
+            try:
+                if os.path.exists(tmp_path):
+                    shutil.rmtree(tmp_path)
                 os.mkdir(tmp_path)
                 randomizer_path = os.path.join(tmp_path, "albwrandomizer")
                 os.mkdir(randomizer_path)
@@ -35,6 +35,8 @@ def setup_lib():
                     if not info.is_dir() and info.filename.startswith("albw/albwrandomizer/"):
                         info.filename = os.path.basename(info.filename)
                         apworld.extract(info, randomizer_path)
+            except:
+                pass
             if not tmp_path in sys.path:
                 sys.path.append(tmp_path)
     else:
