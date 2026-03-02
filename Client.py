@@ -201,9 +201,9 @@ class ALBWClientContext(CommonContext):
     def on_package(self, cmd: str, args: dict) -> None:
         if cmd == "Connected":
             self.slot_data = args["slot_data"]
-            if "DeathLink" in args["slot_data"]:
+            if "death_link" in args["slot_data"]:
                 Utils.async_start(self.update_death_link(
-                    bool(args["slot_data"]["DeathLink"])))
+                    bool(args["slot_data"]["death_link"])))
             self.server_connected = True
 
         if cmd == "LocationInfo":
