@@ -114,7 +114,7 @@ class ALBWClientContext(CommonContext):
             "ran into a lynel.",
             "ran out of stamina while on a cliff.",
             "fell, again.",
-            "thought they add a fairy.",
+            "thought they had a fairy.",
             "forgot to buy a potion.",
             "got out of bounds and went a bit too far",
             "got stuck between a wall and hard place.",
